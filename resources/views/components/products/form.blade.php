@@ -1,5 +1,5 @@
 <label for='name'>Name</label>
-<input type='text' name='name' value='{{ old('name' }}'>
+<input type='text' name='name' value='{{ old('name') }}'>
 
 <label for='description'>Description</label>
 <textarea name='description'>{{ old('description') }}</textarea>
