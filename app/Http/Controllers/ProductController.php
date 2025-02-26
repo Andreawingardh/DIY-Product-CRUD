@@ -28,7 +28,17 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+
+                'name' => 'required|max:100',
+                'description' => 'nullable|min:10',
+                'brand' => 'required|min:3',
+                'price' => 'required|decimal:0.2|max:8',
+                'height' => 'nullable|decimal:0.2|max:4',
+                'width' => 'nullable|decimal:0.2|max:4',
+                'weight' => 'nullable|decimal:0.2|max:4',
+                'category' => 'required|max:50',
+        ]);
     }
 
     /**
