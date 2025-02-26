@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Category;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Product>
@@ -24,7 +25,7 @@ class ProductFactory extends Factory
             'height' => fake()->numberBetween(0, 20),
             'width' => fake()->numberBetween(0, 20),
             'weight' => fake()->numberBetween(0, 20),
-            'category' => fake()->text(25),
+            'category' => fake()->randomElement(Category::pluck('id'))
         ];
     }
 }
