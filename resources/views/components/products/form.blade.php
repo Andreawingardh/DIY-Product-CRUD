@@ -6,10 +6,12 @@
 
 <label for='price'>Price</label>
 <input type='text' name='price' value='{{ old('price') }}'>
+<label for='brand'>Brand</label>
+<input type='text' name='brand' value='{{ old('brand') }}'>
 
 <fieldset>
 <legend for='dimensions'>Dimensions</legend>
-<label for='heigth'>Length</label>
+<label for='height'>Height</label>
 <input type='text' name='height' value='{{ old('height') }}'>
 <label for='width'>Width</label>
 <input type='text' name='width' value='{{ old('width') }}'>
@@ -21,4 +23,6 @@
 <label for='categories'>Categories</label>
 <select name='categories[]' multiple>
 </select>
+
+@csrf
 
