@@ -18,9 +18,7 @@ class ProductController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-    }
+    public function create() {}
 
     /**
      * Store a newly created resource in storage.
@@ -29,14 +27,14 @@ class ProductController extends Controller
     {
         $request->validate([
 
-                'name' => 'required|max:100',
-                'description' => 'nullable|min:10',
-                'brand' => 'required|min:3',
-                'price' => 'required|decimal:0.2|max:8',
-                'height' => 'nullable|decimal:0.2|max:4',
-                'width' => 'nullable|decimal:0.2|max:4',
-                'weight' => 'nullable|decimal:0.2|max:4',
-                'category' => 'required|max:50',
+            'name' => 'required|min:10|max:100',
+            'description' => 'nullable|min:10',
+            'brand' => 'required|min:3',
+            'price' => 'required|decimal:0,2',
+            'height' => 'nullable|decimal:0,2',
+            'width' => 'nullable|decimal:0,2',
+            'weight' => 'nullable|decimal:0,2',
+            'category' => 'required|max:50',
         ]);
 
         Product::create($request->input());
