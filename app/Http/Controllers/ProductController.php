@@ -20,7 +20,6 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -39,6 +38,8 @@ class ProductController extends Controller
                 'weight' => 'nullable|decimal:0.2|max:4',
                 'category' => 'required|max:50',
         ]);
+
+        Product::create($request->input());
     }
 
     /**
