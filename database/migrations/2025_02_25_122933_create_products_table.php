@@ -4,6 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use App\Models\Category;
+use App\Models\Brand;
 
 return new class extends Migration
 {
@@ -17,7 +18,7 @@ return new class extends Migration
             $table->timestamps();
             $table->string('name', length: 100);
             $table->text('description')->nullable();
-            $table->text('brand');
+            $table->foreignIdFor(Brand::class);
             $table->decimal('price', total: 8, places: 2)->default(0);
             $table->decimal('height',total: 4, places: 2)->default(0);
             $table->decimal('width', total: 4, places: 2)->default(0);
