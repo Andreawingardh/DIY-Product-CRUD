@@ -14,8 +14,8 @@
 @endif
     
 
-<form action="/products" method="post">
-<x-products.form />
+<form action="/products/store" method="post">
+<x-products.form :categories=$categories :brands=$brands />
 <button type="submit">Create new product</button>
 </form>
 
