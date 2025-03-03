@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Spatie\QueryBuilder\QueryBuilder;
 
 class ProductController extends Controller
 {
@@ -16,6 +17,14 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::with(['category', 'brand'])->get();
+
+        $products = QueryBuilder::for(Product::class)
+        ->allowedFilters(['name', 'brand_id', 'category_id'])
+        ->get()
+        ->allowedSorts('price')
+        ->get();
+    
+
         return view('products.index', ['products' => $products]);
     }
 
@@ -84,6 +93,7 @@ class ProductController extends Controller
         ]);
 
         $product->update($request->input());
+        return redirect()->route('products.show', $product);
     }
 
     /**
