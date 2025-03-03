@@ -2,20 +2,12 @@
 
 <h2>create product</h2>
 
-@if ($errors->any())
 
-    <ul>
-        @foreach ($errors->all() as $error)
-            <li>
-                {{$error}}
-            </li>
-        @endforeach
-    </ul>
-@endif
-    
+<x-errors/>
 
-<form action="/products/store" method="post">
-<x-products.form :categories=$categories :brands=$brands />
+<form  method="post" action="{{ route('products.store') }}">
+<x-products.form />
+
 <button type="submit">Create new product</button>
 </form>
 
