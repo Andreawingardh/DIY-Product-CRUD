@@ -6,6 +6,7 @@
     <p>The product weighs {{$product->weight}}.</p>
     <p>Dimensions: {{$product->height}} x {{$product->width}}.</p>
     <p>Category: {{$product->category->name}}</p>
+    <p>Price: {{$product->price}}</p>
 
     <form method="post" action="{{ route('products.destroy', $product)}}">
     @csrf
