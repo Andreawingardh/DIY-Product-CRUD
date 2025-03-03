@@ -6,6 +6,7 @@ use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class ProductController extends Controller
 {
@@ -23,8 +24,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-
-        return view('products.create');
+        $categories = Category::all();
+        $brands = Brand::all();
+        return view('products.create', ['categories' => $categories, 'brands' => $brands]);
         /**
          * Store a newly created resource in storage.
          */
@@ -35,15 +37,15 @@ class ProductController extends Controller
 
             'name' => 'required|min:10|max:100',
             'description' => 'nullable|min:10',
-            // 'brand' => 'required|min:3',
+            'brand_id' => 'required',
             'price' => 'required|decimal:0,2',
             'height' => 'nullable|decimal:0,2',
             'width' => 'nullable|decimal:0,2',
             'weight' => 'nullable|decimal:0,2',
-            // 'category' => 'required|max:50',
+            'category_id' => 'required',
         ]);
-
         Product::create($request->input());
+        return redirect(route('products.index'));
     }
 
     /**
@@ -59,7 +61,9 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        return view('products.edit', ['product' => $product]);
+        $categories = Category::all();
+        $brands = Brand::all();
+        return view('products.edit', ['product' => $product, 'categories' => $categories, 'brands' => $brands]);
     }
 
     /**
@@ -79,7 +83,7 @@ class ProductController extends Controller
             // 'category' => 'required|max:50',
         ]);
 
-        Product::updated($request->input());
+        $product->update($request->input());
     }
 
     /**

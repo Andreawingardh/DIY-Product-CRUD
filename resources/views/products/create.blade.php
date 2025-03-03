@@ -7,6 +7,7 @@
 
 <form  method="post" action="{{ route('products.store') }}">
 <x-products.form />
+
 <button type="submit">Create new product</button>
 </form>
 
