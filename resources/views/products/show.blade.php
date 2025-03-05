@@ -9,9 +9,10 @@
 
     <form method="post" action="{{ route('products.destroy', $product)}}">
     @csrf
+    @can('delete', $product)
     @method('DELETE')
     <button>DELETE</button>
-
+@endcan
     </form>
 
     
