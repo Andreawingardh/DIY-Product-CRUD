@@ -1,3 +1,4 @@
+@csrf
 <label for='name'>Name</label>
 <input type='text' name='name' value='{{ old('name', $product->name ?? '') }}'>
 
@@ -32,3 +33,7 @@
     </option>
     @endforeach
 </select>
+
+
+
+
