@@ -5,7 +5,5 @@
         </h2>
     </x-slot>
 
-    @if(isset($product))
-    @include('products.show', ['product' => $product])
-@endif
+    
 </x-app-layout>
