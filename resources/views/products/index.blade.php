@@ -18,6 +18,9 @@
                         <a href="/products/{{$product->id}}" class="product-link">
                             <div class="product-content">
                                 <h2>{{$product->name }}</h2>
+                                @if ($product->image_url)
+                                <img src="{{ $product->image_url }}" alt="{{ $product->name }}" class="product-image">
+                            @endif
                                 <p class="product-price">${{$product->price}}</p>
                                 <h3>Brand: {{$product->brand->name}}</h3>
                                 <div class="product-details">

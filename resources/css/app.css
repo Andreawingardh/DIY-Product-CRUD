@@ -310,3 +310,25 @@
   .product-detail .back-link:hover {
     color: #2563eb;
   }
+
+  .product-image-container {
+    width: 100%;
+    margin: 0.5rem 0 1rem 0;
+  }
+  
+  .product-image {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  /* Product image styling for detail page */
+  .product-detail-image {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 1.5rem;
+  }

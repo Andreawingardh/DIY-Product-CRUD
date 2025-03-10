@@ -9,6 +9,11 @@
                 <section class="product-info">
                     <h2>Brand: {{$product->brand->name}}</h2>
                     
+                    @if ($product->image_url)
+                    <div class="product-image-container">
+                        <img src="{{ asset($product->image_url) }}" alt="{{ $product->name }}" class="product-detail-image">
+                    </div>
+                @endif
                     <div class="product-specs">
                         <p>The product weighs {{$product->weight}}.</p>
                         <p>Dimensions: {{$product->height}} x {{$product->width}}.</p>
