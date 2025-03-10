@@ -1,4 +1,7 @@
 <x-layout>
+
+<x-products.filter :products=$products :brands=$brands :categories=$categories />
+
     <div class="container mx-auto px-4 py-8">
         <div class="mb-8 flex justify-between items-center">
             <h1 class="text-3xl font-bold text-gray-800">Products</h1>
@@ -29,4 +32,7 @@
             @endforeach
         </div>
     </div>
+
+
+{{ $products->links() }}
 </x-layout>

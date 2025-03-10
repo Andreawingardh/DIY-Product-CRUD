@@ -18,8 +18,31 @@ class ProductFactory extends Factory
      */
     public function definition(): array
     {
+
+        $hardwareProducts = [
+            "Hammer",
+            "Screwdriver Set",
+            "Adjustable Wrench",
+            "Cordless Drill",
+            "Tape Measure",
+            "Utility Knife",
+            "Spirit Level",
+            "Pliers Set",
+            "Hand Saw",
+            "Stud Finder",
+            "Allen Wrench Set",
+            "Chisel Set",
+            "Safety Goggles",
+            "Workbench",
+            "Claw Hammer",
+            "Wood Glue",
+            "Sandpaper Set",
+            "Power Sander",
+            "Paint Roller Set",
+            "Hot Glue Gun"
+        ];
         return [
-            'name' => fake()->text(20),
+            'name' => fake()->randomElement($hardwareProducts),
             'description' => fake()->text(100),
             'brand_id' => fake()->randomElement(Brand::pluck('id')),
             'price' => fake()->numberBetween(0, 2500),

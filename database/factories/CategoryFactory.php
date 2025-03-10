@@ -20,7 +20,7 @@ class CategoryFactory extends Factory
 
         $categories = [
 
-            'Screw', 'Materials', 'Tools', 'Paint', 'Hobbies'
+            'Hardware', 'Materials', 'Tools', 'Paint', 'Hobbies'
         ];
 
         return [
