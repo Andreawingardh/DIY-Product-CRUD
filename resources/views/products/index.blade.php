@@ -14,12 +14,14 @@
                 <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-200">
                     <a href="/products/{{$product->id}}" class="block">
                         <div class="p-6">
-                            <h2 class="text-xl font-semibold text-gray-800 mb-2">{{$product->name }}</h2>
+                            
+                            <h2 class="text-xl font-semibold text-gray-800 mb-1">{{$product->name }}</h2>
+                            <p class="text-lg text-gray-700 font-medium mb-3">${{$product->price}}</p>
                             <h3 class="text-md font-medium text-gray-700 mb-2">Brand: {{$product->brand->name}}</h3>
                             <div class="text-sm text-gray-600 space-y-1">
                                 <p>The product weighs {{$product->weight}}.</p>
                                 <p>Dimensions: {{$product->height}} x {{$product->width}}.</p>
-                                <p>Category: {{$product->category->name}}</p>
+                                <p class="font-medium">Category: {{$product->category->name}}</p>
                             </div>
                         </div>
                     </a>
