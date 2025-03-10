@@ -18,7 +18,8 @@ class AdminUserSeeder extends Seeder
             'name' => 'Admin User',
             'email' => 'admin@example.com',
             'password' => Hash::make('password123'),
-            // No role field since it doesn't exist in your table
+            'role' => 'admin',
         ]);
+        
     }
 }
