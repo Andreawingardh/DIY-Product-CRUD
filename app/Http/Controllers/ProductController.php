@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\SaveProductRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Middleware\AdminOnly;
-
+use Spatie\QueryBuilder\QueryBuilder;
 
 
 class ProductController extends Controller
@@ -18,10 +18,18 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::with(['category', 'brand'])->get();
-        return view('products.index', ['products' => $products]);
+
+        $products = QueryBuilder::for(Product::class)
+        ->allowedFilters(['name', 'brand_id', 'category_id'])
+        ->allowedSorts(['name', 'price', 'brand_id'])
+        ->defaultSort('name')
+        ->with(['category', 'brand'])
+        ->paginate(10)
+        ->appends($request->query());
+        
+        return view('products.index', ['products' => $products, 'brands' => Brand::all(), 'categories' => Category::all()]);
     }
 
     /**
