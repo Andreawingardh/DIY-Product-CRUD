@@ -3,6 +3,8 @@
 <a href="{{route('products.create')}}">Create new product</a>
 @endif
 
+<x-products.filter :products=$products :brands=$brands :categories=$categories />
+
 @foreach($products as $product)
     <a href="/products/{{$product->id}}"><h2>{{$product->name }}</h2></a>
     <h3>Brand: {{$product->brand->name}}</h3>
@@ -12,4 +14,5 @@
 
 @endforeach
 
+{{ $products->links() }}
 </x-layout>
