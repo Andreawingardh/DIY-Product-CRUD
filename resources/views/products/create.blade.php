@@ -1,8 +1,5 @@
 <x-layout>
 
-<h2>create product</h2>
-
-
 <x-errors/>
 
 <form  method="post" action="{{ route('products.store') }}">
