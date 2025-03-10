@@ -9,7 +9,9 @@
 </head>
 <body>
 
-    {{ $slot }}
-
+    <x-app-layout/>
+    <main>
+        {{ $slot }}
+    </main>
 </body>
 </html>
