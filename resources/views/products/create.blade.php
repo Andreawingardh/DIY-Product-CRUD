@@ -1,11 +1,11 @@
 <x-layout>
+    <div class="diy-content">
+        <x-errors/>
 
-<x-errors/>
-
-<form  method="post" action="{{ route('products.store') }}">
-<x-products.form :categories=$categories :brands=$brands/>
-
-<button type="submit">Create new product</button>
-</form>
-
+        <form class="diy-form" method="post" action="{{ route('products.store') }}">
+            <x-products.form :categories=$categories :brands=$brands>
+                <button type="submit" class="diy-submit-button">Create new product</button>
+            </x-products.form>
+        </form>
+    </div>
 </x-layout>
