@@ -1,6 +1,7 @@
 <x-layout>
-
+    @if (auth()->check() && auth()->user()->isAdmin())
 <a href="{{route('products.create')}}">Create new product</a>
+@endif
 
 @foreach($products as $product)
     <a href="/products/{{$product->id}}"><h2>{{$product->name }}</h2></a>

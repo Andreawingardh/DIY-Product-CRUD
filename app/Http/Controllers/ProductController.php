@@ -8,6 +8,10 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\SaveProductRequest;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Middleware\AdminOnly;
+
+
 
 class ProductController extends Controller
 {
@@ -25,6 +29,7 @@ class ProductController extends Controller
      */
     public function create()
     {
+        $middleware = new AdminOnly();
         $categories = Category::all();
         $brands = Brand::all();
         return view('products.create', ['categories' => $categories, 'brands' => $brands]);
@@ -55,6 +60,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
+       
         $categories = Category::all();
         $brands = Brand::all();
         return view('products.edit', ['product' => $product, 'categories' => $categories, 'brands' => $brands]);
@@ -65,6 +71,7 @@ class ProductController extends Controller
      */
     public function update(SaveProductRequest $request, Product $product)
     {
+        
 
         $product->update($request->validated());
         return redirect()->route('products.show', $product);
@@ -75,6 +82,8 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
+        
+
         $product->delete();
         return redirect()->route('products.index');
     }
