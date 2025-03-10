@@ -29,7 +29,8 @@ class SaveProductRequest extends FormRequest
             'height' => 'nullable|decimal:0,2',
             'width' => 'nullable|decimal:0,2',
             'weight' => 'nullable|decimal:0,2',
-            'category_id' => 'required|exists:categories,id'
+            'category_id' => 'required|exists:categories,id',
+            'image_url' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
         ];
     }
 }
