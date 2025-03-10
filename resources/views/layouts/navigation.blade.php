@@ -20,9 +20,12 @@
                     <x-nav-link :href="route('products.index')" :active="request()->routeIs('products.index')">
                         {{ __('Products') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('products.create')" :active="request()->routeIs('products.create')">
-                        {{ __('Create Product') }}
-                    </x-nav-link>
+                    @if (auth()->check() && auth()->user()->isAdmin())
+                        <x-nav-link :href="route('products.create')" :active="request()->routeIs('products.create')">
+                            {{ __('Create Product') }}
+                        </x-nav-link>
+                    @endif
+                    
                 </div>
             </div>
 
