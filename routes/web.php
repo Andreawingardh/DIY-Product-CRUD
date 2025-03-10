@@ -21,16 +21,18 @@ Route::middleware('auth')->group(function () {
     
     // Product routes accessible to all authenticated users
     Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+    
+    // Admin-only product routes 
+    Route::middleware(['admin'])->group(function () {
+        Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
+        Route::post('/products/store', [ProductController::class, 'store'])->name('products.store');
+        Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
+        Route::patch('/product/{product}', [ProductController::class, 'update'])->name('products.update');
+        Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
+    });
+    
+    // Denna måste vara sist för att inte fånga upp de mer specifika rutterna ovan
     Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
-});
-
-// Admin-only product routes
-Route::middleware(['auth', 'admin'])->group(function () {
-    Route::get('products/create', [ProductController::class, 'create'])->name('products.create');
-    Route::post('/products/store', [ProductController::class, 'store'])->name('products.store');
-    Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
-    Route::patch('/product/{product}', [ProductController::class, 'update'])->name('products.update');
-    Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
 });
 
 require __DIR__.'/auth.php';
