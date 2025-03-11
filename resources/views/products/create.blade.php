@@ -1,14 +1,14 @@
 <x-layout>
+    <section class="diy-content">
+        <x-errors/>
 
-<h2>create product</h2>
+        <form class="diy-form" method="post" action="{{ route('products.store') }}" enctype="multipart/form-data">
+            <x-products.form :categories=$categories :brands=$brands :title=$title>
 
+            <button type="submit" class="diy-submit-button">Create new product</button>
 
-<x-errors/>
+            </x-products.form>
 
-<form  method="post" action="{{ route('products.store') }}">
-<x-products.form :categories=$categories :brands=$brands/>
-
-<button type="submit">Create new product</button>
-</form>
-
+        </form>
+    </section>
 </x-layout>
