@@ -5,7 +5,8 @@
             
         </h2>
     </x-slot>
-    <h2>Welcome, {{ $user->name }}</h2>
-
-    
+    <section class="dashboard-intro">
+        <h2>Welcome, {{ $user->name }} to DIJA</h2>
+        <img class="logo" src="/images/Logo.webp">
+    </section>
 </x-app-layout>

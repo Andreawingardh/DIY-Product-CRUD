@@ -391,3 +391,18 @@
     padding: 0.5rem;
     border: none;
   }
+
+  .logo {
+    width: 50%;
+    height: 20%;
+    border-radius: 50%;
+  }
+
+  .dashboard-intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 2rem;
+  }
