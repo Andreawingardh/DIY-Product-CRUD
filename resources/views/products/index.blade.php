@@ -1,6 +1,6 @@
 <x-layout>
     <div class="diy-content">
-        <x-products.filter :products=$products :brands=$brands :categories=$categories />
+        
         
         <main class="products-page">
             <div class="page-title-area">
@@ -11,6 +11,8 @@
                     </a>
                 @endif --}}
             </div>
+
+            <x-products.filter :products=$products :brands=$brands :categories=$categories />
         
             <section class="products-grid">
                 @foreach($products as $product)
