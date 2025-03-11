@@ -210,6 +210,7 @@
   
   /* Product Detail Page - Specific styling */
   .product-detail {
+    width: fit-content;
     max-width: 800px;
     margin: 2rem auto;
     padding: 2rem;
@@ -225,7 +226,8 @@
   }
   
   .product-detail .product-info {
-    margin-bottom: 2rem;
+    max-width: 400px;
+    margin: 0 auto 2rem auto;
   }
   
   .product-detail .product-info h2 {
@@ -237,6 +239,7 @@
   .product-detail .product-specs {
     color: #666;
     line-height: 1.6;
+    width: 100%;
   }
   
   .product-detail .category-name {
@@ -307,8 +310,8 @@
   }
 
   .product-image-container {
-    width: 100%;
-    margin: 0.5rem 0 1rem 0;
+    width: 400px;
+    margin: 0.5rem auto 1rem auto;
   }
   
   .product-image {
@@ -321,13 +324,13 @@
   /* Product image styling for detail page */
   .product-detail-image {
     width: 100%;
-    aspect-ratio: 1/1;
+    height: 400px;
     object-fit: cover;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
   }
-
+  
   /* Product Filters */
   .product-filters {
     display: flex;
