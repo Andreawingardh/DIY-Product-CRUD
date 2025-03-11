@@ -5,7 +5,7 @@
     <p class="session-message">{{ session('message') }}</p>
 @endif
 
-    </section>
+        
     <article class="selected-product">
        
 
@@ -51,12 +51,13 @@
             </section>
             <section class="right-container">
                
-            <div class="selected-product-specs">
-                <h2>Brand: {{$product->brand->name}}</h2>
-                <p>Price: ${{$product->price}} </p>
-                <p>The product weighs {{$product->weight}}.</p>
-                <p>Dimensions: {{$product->height}} x {{$product->width}}.</p>
-                <p>Category: <span class="category-name">{{$product->category->name}}</span></p>
+                <div class="selected-product-specs">
+                    <h2><span>Brand:</span> {{$product->brand->name}}</h2>
+                    <p><span>Price:</span> ${{$product->price}}</p>
+                    <p><span>Weight:</span> {{$product->weight}}</p>
+                    <p><span>Dimensions:</span> {{$product->height}} x {{$product->width}}</p>
+                    <p><span>Category:</span> {{$product->category->name}}</p>
+                 </div>
             </div>
             </section>
         </section>

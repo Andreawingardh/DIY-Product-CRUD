@@ -1,4 +1,4 @@
-/* Product Detail Page - Specific styling */
+/* ------ PRODUCT DETAIL PAGE ------ */
 .selected-product {
     max-width: 50vw;
     min-width: 400px;
@@ -9,6 +9,7 @@
     border: 1px solid var(--accent-color);
   }
   
+  /* ------ TYPOGRAPHY ------ */
   .selected-product h1 {
     font-size: 2rem;
     color: #333;
@@ -18,29 +19,68 @@
   
   .selected-product h2 {
     font-size: 1.25rem;
-    color: #555;
+    color: #000000;
     margin-bottom: 0.5rem;
-  }
-
-  .product-info {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    height: 70%; /* Takes 80% of parent's height */
   }
   
   .selected-product .selected-product-specs {
     color: #666;
     line-height: 1.6;
     width: 100%;
-    
   }
   
-  .selected-product .category-name {
-    font-weight: 600;
+  .selected-product-specs span {
+    font-weight: bold;
   }
   
+  /* ------ LAYOUT ------ */
+  .product-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 70%;
+  }
+  
+  .left-container {
+    width: 50%;
+  }
+  
+  .right-container {
+    width: 50%;
+    margin-left: 4rem;
+  }
+  
+  /* ------ IMAGE ------ */
+  .selected-product-detail-image {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    max-height: 80%;
+    max-width: 80vmin;
+  }
+  
+  /* ------ NAVIGATION ------ */
+  .selected-product nav {
+    display: flex;
+    align-items: center;
+  }
+  
+  .selected-product .back-link {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  .selected-product .back-link:hover {
+    color: #0846AA;
+  }
+  
+  /* ------ ACTIONS ------ */
   .selected-product .action-bar {
     display: flex;
     justify-content: space-between;
@@ -48,7 +88,6 @@
     margin-bottom: 1rem;
   }
   
-  /* Fix för admin-knappar */
   .selected-product .admin-actions {
     display: flex;
     gap: 1rem;
@@ -64,9 +103,10 @@
     box-shadow: none;
     background: none;
     border-radius: 0;
-    max-width: none; /* Återställ eventuella tidigare formulärstilar */
+    max-width: none;
   }
   
+  /* ------ BUTTONS ------ */
   .selected-product .edit-button,
   .selected-product .delete-button {
     background-color: var(--accent-color);
@@ -92,50 +132,12 @@
     background-color: #970C0C;
   }
   
-  .selected-product nav {
-    display: flex;
-    align-items: center;
-  }
-  
-  .selected-product .back-link {
-    color: var(--accent-color);
-    text-decoration: none;
-    font-weight: 500;
-    display: inline-flex;
-    align-items: center;
-  }
-  
-  .selected-product .back-link:hover {
-    color: #0846AA;
-  }
-
-  .selected-product-detail-image {
-    width: 100%;
-    aspect-ratio: 1/1;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 0.5rem;
-    max-height: 80%;
-    max-width: 80vmin;
-}
-
- 
-.right-container {
- width: 50%;
- margin-left: 4rem;
-}
- 
-.left-container {
- width: 50%;
- 
-}
-
-.edit-message {
+  /* ------ MESSAGES ------ */
+  .edit-message {
     display: flex;
     align-items: end;
     flex-direction: row;
     align-content: space-around;
     justify-content: space-around;
     margin-top: 1rem;
-
-}
+  }

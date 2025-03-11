@@ -2,20 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ------ BASE STYLES ------ */
 body {
   font-size: clamp(8px, calc(8px + 0.5vw), 16px);
- }
-/* DIY Store - specifika stilar som inte påverkar Breeze */
+}
+
 .diy-content {
   font-family: 'Arial', sans-serif;
   line-height: 1.6;
   color: #333;
-  height: auto;
   height: 60vh;
-  
 }
 
-/* Containers */
+/* ------ CONTAINERS ------ */
 .diy-container {
   width: 90%;
   max-width: 1200px;
@@ -23,15 +22,13 @@ body {
   padding: 20px;
 }
 
-
-
-/* Produktsida */
 .products-page {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem 1rem;
 }
 
+/* ------ PAGE HEADER ------ */
 .page-title-area {
   display: flex;
   justify-content: space-between;
@@ -46,6 +43,16 @@ body {
   margin-bottom: 1.5rem;
 }
 
+p.session-message {
+  font-weight: 800;
+  width: fit-content;
+  color: #0846AA;
+  display: block;
+  padding: 0.5rem;
+  border: none;
+}
+
+/* ------ BUTTONS ------ */
 .diy-create-button {
   background-color: var(--accent-color);
   color: white;
@@ -59,7 +66,12 @@ body {
   background-color: #2563eb;
 }
 
-/* Products Grid Layout */
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* ------ PRODUCTS GRID ------ */
 .products-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -71,11 +83,9 @@ body {
   justify-content: center;
 }
 
-/* Product card styling */
+/* ------ PRODUCT CARD ------ */
 .product-card {
   background-color: var(--secondary-bg-color);
-  /* border-radius: 0.5rem; */
-  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
   transition: transform 0.2s, box-shadow 0.2s;
   border: 1px solid var(--accent-color);
   height: 100%;
@@ -104,18 +114,19 @@ body {
   margin-bottom: 0.25rem;
 }
 
-.product-price {
-  font-size: 1.125rem;
-  color: #374151;
-  font-weight: 500;
-  margin-bottom: 0.75rem;
-}
-
 .product-content h3 {
   font-size: 1rem;
   font-weight: 500;
   color: #374151;
   margin-bottom: 0.5rem;
+}
+
+.product-price {
+  font-size: 1.125rem;
+  color: #374151;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+  margin-top: 0.75rem;
 }
 
 .product-details {
@@ -127,12 +138,13 @@ body {
   margin-bottom: 0.25rem;
 }
 
-.product-category {
-  font-weight: 800;
+/* Highlighting labels */
+.product-details span,
+.product-content h3 span {
+  font-weight: bold;
 }
 
-
-
+/* ------ PRODUCT IMAGES ------ */
 .product-image-container {
   width: 400px;
   margin: 0.25rem auto 0.5rem auto;
@@ -145,17 +157,7 @@ body {
   border-radius: 8px;
 }
 
-
-p.session-message {
-  font-weight: 800;
-  width: fit-content;
-  color: #0846AA;
-  display: block;
-  padding: 0.5rem;
-  border: none;
-}
-
-/* Dashboard styles */
+/* ------ DASHBOARD ------ */
 .dashboard-container {
   max-width: 1200px;
   margin: 2rem auto;
@@ -178,36 +180,15 @@ p.session-message {
   color: #333;
 }
 
-.dashboard-header .dashboard-actions {
-  display: flex;
-  gap: 1rem;
-}
-
-.dashboard-actions .dashboard-button {
-  background-color: #0846AA;
-  color: white;
-  padding: 0.6rem 1.2rem;
-  border-radius: 4px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: background-color 0.2s;
-}
-
-.dashboard-actions .dashboard-button:hover {
-  background-color: #2563eb;
-}
-
-/* Modify dashboard content to be column layout */
 .dashboard-content {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   background-color: #E0E0DE;
-  
 }
 
 .dashboard-card {
-  background-color: #efefef; /* Exempel på en ljus bakgrundsfärg */
+  background-color: #efefef;
   padding: 1rem;
   margin: 0 auto;
   width: fit-content;
@@ -226,6 +207,30 @@ p.session-message {
   color: #4b5563;
 }
 
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard-intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 2rem;
+}
+
+.dashboard-footer {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #6b7280;
+  padding: 1rem 0;
+}
+
+/* ------ DASHBOARD TABLE ------ */
 .dashboard-table {
   width: 100%;
   border-collapse: collapse;
@@ -248,10 +253,15 @@ p.session-message {
   background-color: var(--bg-color);
 }
 
+.dashboard-table form {
+  margin: 0;
+  display: inline;
+}
+
+/* ------ TABLE ACTION LINKS ------ */
 .dashboard-table .edit-link, 
 .dashboard-table .delete-link {
   text-decoration: none;
-  text-decoration: color#0000C4;
   font-weight: 600;
   padding: 0.5rem;
   border-radius: 4px;
@@ -264,7 +274,6 @@ p.session-message {
 
 .dashboard-table .edit-link:hover {
   text-decoration: underline;
-  text-decoration: color #0000C4;
 }
 
 .dashboard-table .delete-link {
@@ -275,28 +284,31 @@ p.session-message {
   text-decoration: underline;
 }
 
-.dashboard-footer {
-  margin-top: 2rem;
-  text-align: center;
-  font-size: 0.875rem;
-  color: #6b7280;
-  padding: 1rem 0;
+/* ------ DASHBOARD ACTIONS ------ */
+.dashboard-header .dashboard-actions {
+  display: flex;
+  gap: 1rem;
 }
 
-/* Logo styling */
+.dashboard-actions .dashboard-button {
+  background-color: #0846AA;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.dashboard-actions .dashboard-button:hover {
+  background-color: #2563eb;
+}
+
+/* ------ LOGO ------ */
 .logo {
   max-width: 50%;
   height: auto;
   border-radius: 50%;
-}
-
-.dashboard-intro {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 2rem;
 }
 
 .dashboard-header img.logo {
@@ -304,33 +316,14 @@ p.session-message {
   margin-left: 10px;
 }
 
-/* Action buttons */
-.action-buttons {
-  display: flex;
-  gap: 0.5rem;
-}
-
-/* Fix for the delete button in form */
-.dashboard-table form {
-  margin: 0;
-  display: inline;
-}
-
-/* Pagination styling */
+/* ------ PAGINATION ------ */
 .dashboard-content > nav,
 main.dashboard-content > nav {
   margin-top: 2rem;
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
   margin-bottom: 2rem;
-}
-
-/* Header row in dashboard */
-.header-row {
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
 main.dashboard-content nav {
@@ -341,9 +334,12 @@ main.dashboard-content nav {
   justify-content: space-between; 
 }
 
-/* Align text and pagination links */
 .pagination-results-text,
 .pagination-links {
   display: flex;
   align-items: center;
+}
+
+.text-sm.text-gray-700 span.font-medium {
+  font-weight: bold;
 }
