@@ -11,7 +11,7 @@
 <body>
 
     <x-app-layout/>
-    <main>
+    <main class="diy-content">
         {{ $slot }}
     </main>
 </body>

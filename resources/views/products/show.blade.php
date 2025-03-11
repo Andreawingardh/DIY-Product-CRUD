@@ -1,16 +1,12 @@
 <x-layout>
-    <div class="diy-content">
-        <main>
+
             <article class="product-detail">
 
                 @if (session('message'))
                 <p class="session-message">{{ session('message') }}</p>
               @endif
-                <header>
+            
                     <h1>{{$product->name }}</h1>
-                </header>
-
-                
                 <section class="product-info">
                     <h2>Brand: {{$product->brand->name}}</h2>
                     
@@ -28,7 +24,7 @@
                 </section>
 
                 @if (auth()->check() && auth()->user()->isAdmin())
-                    <div class="admin-actions">
+                    <section class="admin-actions">
                         <a href="/products/{{$product->id}}/edit">
                             <button class="edit-button">
                                 Edit
@@ -43,15 +39,13 @@
                                 Delete
                             </button>
                         </form>
-                    </div>
+                    </section>
                 @endif
                 
-                <footer>
+                <nav>
                     <a href="{{ route('products.index') }}" class="back-link">
                         &larr; Back to all products
                     </a>
-                </footer>
+                </nav>
             </article>
-        </main>
-    </div>
 </x-layout>
