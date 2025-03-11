@@ -13,8 +13,13 @@
 
     <main class="dashboard-content">
         <section class="dashboard-card">
-            <h2>Product Overview</h2>
-            
+            <div class="header-row">
+                <h2>Product Overview</h2>  
+                @if (session('message'))
+                    <p class="session-message">{{ session('message') }}</p>
+                @endif
+            </div>
+           
             <table class="dashboard-table">
                 <thead>
                     <tr>
@@ -44,9 +49,10 @@
                                         Edit
                                     </button>  
                                 </a>
-                                <form method="post" action="{{ route('products.destroy', $product)}}">
+                                <form method="post" action="{{ route('products.destroy', $product) }}">
                                     @csrf
                                     @method('DELETE')
+                                    <input type="hidden" name="source" value="dashboard">
                                     <button type="submit" class="delete-link" 
                                         onclick="return confirm('Are you sure you want to delete this product?')">
                                         Delete
@@ -58,9 +64,7 @@
                 </tbody>
             </table>
         </section>
+        
+        {{ $products->links() }}
     </main>
-
-</section>
-{{ $products->links() }}
-</section>
 </x-app-layout>

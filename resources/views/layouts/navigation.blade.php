@@ -85,7 +85,7 @@
                 {{ __('Products') }}
             </x-responsive-nav-link>
             @if (auth()->check() && auth()->user()->isAdmin())
-        <x-responsive-nav-link :href="route('products.create')" :active="request()->routeIs('products.create')">
+                <x-responsive-nav-link :href="route('products.create')" :active="request()->routeIs('products.create')">
                     {{ __('Create Product') }}
                 </x-responsive-nav-link>
             @endif
