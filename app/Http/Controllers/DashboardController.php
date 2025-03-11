@@ -2,13 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Models\Product;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
     public function index()
     {
-        return view('dashboard', ['user' => User::all()]);
+        $products = Product::paginate(15);
+        
+        return view('dashboard', [
+            'user' => Auth::user(),
+            'products' => $products // Use the paginated products
+        ]);
     }
 }
+

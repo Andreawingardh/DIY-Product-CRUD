@@ -87,20 +87,18 @@ class ProductController extends Controller
         return view('products.edit', ['product' => $product, 'categories' => $categories, 'brands' => $brands, 'title' => 'Edit product']);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+   
     public function update(SaveProductRequest $request, Product $product)
     {
-        // Update the product with validated data
+        
         $product->update($request->validated());
         
-        // Handle image upload if a new file is provided
+       
         if ($request->hasFile('image')) {
-            // Delete old image if it exists
+           
             $this->fileUploadService->deleteFile($product->image_url);
             
-            // Upload and store the new image
+            
             $product->image_url = $this->fileUploadService->uploadFile(
                 $request->file('image'),
                 'products'
@@ -112,12 +110,10 @@ class ProductController extends Controller
             ->with(['message' => 'Product successfully edited']);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+   
     public function destroy(Product $product)
     {
-        // Delete the product image if it exists
+        
         $this->fileUploadService->deleteFile($product->image_url);
         
         $product->delete();
