@@ -2,9 +2,14 @@
     <div class="diy-content">
         <main>
             <article class="product-detail">
+
+                @if (session('message'))
+                <p class="session-message">{{ session('message') }}</p>
+              @endif
                 <header>
                     <h1>{{$product->name }}</h1>
                 </header>
+
                 
                 <section class="product-info">
                     <h2>Brand: {{$product->brand->name}}</h2>
@@ -15,6 +20,7 @@
                     </div>
                 @endif
                     <div class="product-specs">
+                        <p>Price: ${{$product->price}} </p>
                         <p>The product weighs {{$product->weight}}.</p>
                         <p>Dimensions: {{$product->height}} x {{$product->width}}.</p>
                         <p>Category: <span class="category-name">{{$product->category->name}}</span></p>
