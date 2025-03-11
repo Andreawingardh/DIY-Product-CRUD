@@ -13,8 +13,13 @@
 
     <main class="dashboard-content">
         <section class="dashboard-card">
-            <h2>Product Overview</h2>
-            
+            <div class="header-row">
+                <h2>Product Overview</h2>  
+                @if (session('message'))
+                    <p class="session-message">{{ session('message') }}</p>
+                @endif
+            </div>
+           
             <table class="dashboard-table">
                 <thead>
                     <tr>
@@ -25,7 +30,9 @@
                         <th scope="col">Height</th>
                         <th scope="col">Width</th>
                         <th scope="col">Category</th>
+                        @if (auth()->check() && auth()->user()->isAdmin())
                         <th scope="col">Actions</th>
+                        @endif
                     </tr>
                 </thead>
                 <tbody>
@@ -39,18 +46,21 @@
                             <td>{{ $product->width }}</td>
                             <td>{{ $product->category->name ?? 'N/A' }}</td>
                             <td>
+                                @if (auth()->check() && auth()->user()->isAdmin())
                                 <a href="/products/{{$product->id}}/edit">
                                     <button class="edit-link">
                                         Edit
                                     </button>  
                                 </a>
-                                <form method="post" action="{{ route('products.destroy', $product)}}">
+                                <form method="post" action="{{ route('products.destroy', $product) }}">
                                     @csrf
                                     @method('DELETE')
+                                    <input type="hidden" name="source" value="dashboard">
                                     <button type="submit" class="delete-link" 
                                         onclick="return confirm('Are you sure you want to delete this product?')">
                                         Delete
                                     </button>
+                                    @endif
                                 </form>
                             </td>
                         </tr>
@@ -58,9 +68,7 @@
                 </tbody>
             </table>
         </section>
+        
+        {{ $products->links() }}
     </main>
-
-</section>
-{{ $products->links() }}
-</section>
 </x-app-layout>

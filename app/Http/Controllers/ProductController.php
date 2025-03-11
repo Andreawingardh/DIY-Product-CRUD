@@ -111,13 +111,19 @@ class ProductController extends Controller
     }
 
    
-    public function destroy(Product $product)
-    {
-        
-        $this->fileUploadService->deleteFile($product->image_url);
-        
-        $product->delete();
-        return redirect()->route('products.index')
+    public function destroy(Product $product, Request $request)
+{
+    $this->fileUploadService->deleteFile($product->image_url);
+    $product->delete();
+    
+    // Check if returning to dashboard
+    if ($request->has('source') && $request->source === 'dashboard') {
+        return redirect()->back()
             ->with(['message' => 'Product successfully deleted']);
     }
+    
+    // Default redirect
+    return redirect()->route('products.index')
+        ->with(['message' => 'Product successfully deleted']);
+}
 }
