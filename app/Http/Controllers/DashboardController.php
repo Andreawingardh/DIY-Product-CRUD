@@ -2,13 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Models\Product;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
     public function index()
     {
-        return view('dashboard', ['user' => User::all()]);
+        return view('dashboard', [
+            'user' => Auth::user(),
+            'products' => Product::all() // Fetch all products
+        ]);
     }
 }
+
