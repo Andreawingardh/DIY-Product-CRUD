@@ -1,64 +1,64 @@
-<div class="diy-form-content">
+<section class="diy-form-content">
     @csrf
 
     <section class="diy-section">
-        <header class="diy-form-header">
-            <h2>{{$title}}</h2>
-        </header>
+        <section class="diy-form-header">
+            <h1>{{$title}}</h1>
+        </section>
 
-        <div class="diy-form-group">
-            <label class="diy-label" for="name">Name</label>
-            <input class="diy-input" type="text" name="name" id="name" value="{{ old('name', $product->name ?? '') }}">
-        </div>
+        <fieldset class="diy-form-group">
+            <label class="diy-label" for="name" >Name</label>
+            <input class="diy-input" type="text" name="name" id="name" value="{{ old('name', $product->name ?? '') }}" required>
+        </fieldset>
 
-        <div class="diy-form-group">
+        <fieldset class="diy-form-group">
             <label class="diy-label" for="price">Price</label>
-            <input class="diy-input" type="text" name="price" id="price" value="{{ old('price', $product->price ?? '') }}">
-        </div>
+            <input class="diy-input" type="text" name="price" id="price" value="{{ old('price', $product->price ?? '') }}" required>
+        </fieldset>
 
-        <div class="diy-form-group">
+        <fieldset class="diy-form-group">
             <label class="diy-label" for="description">Description</label>
-            <textarea class="diy-textarea" name="description" id="description" rows="4">{{ old('description', $product->description ?? '') }}</textarea>
-        </div>
+            <textarea class="diy-textarea" name="description" id="description" rows="4" required>{{ old('description', $product->description ?? '') }}</textarea>
+        </fieldset>
 
-        <div class="diy-form-group">
-            <label class="diy-label" for="brand_id">Brand</label>
-            <select class="diy-select" name="brand_id" id="brand_id">
+        <fieldset class="diy-form-group">
+            <label class="diy-label" for="brand">Brand</label>
+            <select class="diy-select" name="brand_id" id="brand_id" required>
                 @foreach ($brands as $brand)
                     <option value="{{ $brand->id }}">{{ old('brand', $brand->name ?? '') }}</option>
                 @endforeach
             </select>
-        </div>
+        </fieldset>
 
-        <div class="diy-form-group">
-            <label class="diy-label" for="category_id">Category</label>
-            <select class="diy-select" name="category_id" id="category_id">
+        <fieldset class="diy-form-group">
+            <label class="diy-label" for="category">Category</label>
+            <select class="diy-select" name="category_id" id="category_id" required>
                 @foreach ($categories as $category)
                     <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
                         {{ $category->name }}
                     </option>
                 @endforeach
             </select>
-        </div>
+        </fieldset>
 
         <fieldset class="diy-fieldset">
             <legend class="diy-legend">Dimensions</legend>
             <div class="diy-form-group">
                 <label class="diy-label" for="height">Height</label>
-                <input class="diy-input" type="text" name="height" id="height" value="{{ old('height', $product->height ?? '') }}">
+                <input class="diy-input" type="text" name="height" id="height" value="{{ old('height', $product->height ?? '') }}" required>
             </div>
             <div class="diy-form-group">
                 <label class="diy-label" for="width">Width</label>
-                <input class="diy-input" type="text" name="width" id="width" value="{{ old('width', $product->width ?? '') }}">
-            </div>
+                <input class="diy-input" type="text" name="width" id="width" value="{{ old('width', $product->width ?? '') }}" required>
+            </div>  
 
-        <div class="diy-form-group">
+        <fieldset class="diy-form-group">
             <label class="diy-label" for="weight">Weight</label>
-            <input class="diy-input" type="text" name="weight" id="weight" value="{{ old('weight', $product->weight ?? '') }}">
-        </div>
+            <input class="diy-input" type="text" name="weight" id="weight" value="{{ old('weight', $product->weight ?? '') }}" required>
+        </fieldset>
     </fieldset>
 
-    <div class="diy-form-group">
+    <fieldset class="diy-form-group">
         <label class="diy-label" for="image">Product Image</label>
         <input class="diy-input" type="file" name="image" id="image" accept="image/*">
         @if(isset($product) && $product->image_url)
@@ -67,10 +67,10 @@
                 <img src="{{ $product->image_url }}" alt="{{ $product->name }}" style="max-width: 200px; max-height: 200px;">
             </div>
         @endif
-    </div>
+        </fieldset>
 
         <div class="diy-form-actions">
             {{ $slot ?? '' }}
         </div>
     </section>
-</div>
+</section>
