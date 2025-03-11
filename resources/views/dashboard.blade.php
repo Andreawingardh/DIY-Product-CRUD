@@ -6,10 +6,10 @@
         </h2>
     </x-slot>
 
-    <header class="dashboard-header">
+    <section class="dashboard-header">
         <h1>Welcome, {{ $user->name }} to DIJA</h1>
-        <img class="logo" src="/images/Logo.webp">
-    </header>
+        {{-- <img class="logo" src="/images/Logo.webp"> --}}
+    </section>
 
     <main class="dashboard-content">
         <section class="dashboard-card">
@@ -22,6 +22,8 @@
                         <th scope="col">Name</th>
                         <th scope="col">Price</th>
                         <th scope="col">Weight</th>
+                        <th scope="col">Height</th>
+                        <th scope="col">Width</th>
                         <th scope="col">Category</th>
                         <th scope="col">Actions</th>
                     </tr>
@@ -33,10 +35,23 @@
                             <td>{{ $product->name }}</td>
                             <td>${{ $product->price }}</td>
                             <td>{{ $product->weight }}</td>
+                            <td>{{ $product->height }}</td>
+                            <td>{{ $product->width }}</td>
                             <td>{{ $product->category->name ?? 'N/A' }}</td>
                             <td>
-                                <a href="#" class="edit-link">Edit</a>
-                                <a href="#" class="delete-link">Delete</a>
+                                <a href="/products/{{$product->id}}/edit">
+                                    <button class="edit-link">
+                                        Edit
+                                    </button>  
+                                </a>
+                                <form method="post" action="{{ route('products.destroy', $product)}}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="delete-link" 
+                                        onclick="return confirm('Are you sure you want to delete this product?')">
+                                        Delete
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach
@@ -45,7 +60,7 @@
         </section>
     </main>
 
-    <footer class="dashboard-footer">
-        <p>&copy; {{ date('Y') }} DIJA. All rights reserved.</p>
-    </footer>
+</section>
+{{ $products->links() }}
+</section>
 </x-app-layout>

@@ -10,9 +10,11 @@ class DashboardController extends Controller
 {
     public function index()
     {
+        $products = Product::paginate(15);
+        
         return view('dashboard', [
             'user' => Auth::user(),
-            'products' => Product::all() // Fetch all products
+            'products' => $products // Use the paginated products
         ]);
     }
 }
