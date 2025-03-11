@@ -1,0 +1,55 @@
+/* Product Filters */
+.product-filters {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1.25rem auto 1.25rem auto;
+    gap: 0.625rem;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    max-width: 50rem;
+  }
+  
+  .filter-row {
+    display: flex;
+    gap: 0.9375rem;
+    margin-bottom: 0.3125rem;
+  }
+  
+  .sort-options {
+    display: flex;
+    gap: 1.25rem;
+  }
+  
+  .sort-options a, .reset-link {
+    text-decoration: none;
+    color: #333;
+    font-size: 0.875rem;
+  }
+  
+  .sort-options a:hover, .reset-link:hover {
+    color: #3b82f6;
+  }
+  
+  .reset-row {
+    margin: 0.3125rem 0;
+  }
+  
+  .filter-form {
+    display: flex;
+    gap: 0.9375rem;
+    align-items: center;
+  }
+  
+  .filter-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .filter-group label {
+    font-weight: 600;
+    color: #555;
+    font-size: 0.8rem;
+  }
+  

@@ -1,8 +1,13 @@
 <x-layout>
-    <article class="product-detail">
-        @if (session('message'))
-            <p class="session-message">{{ session('message') }}</p>
-        @endif
+    <section class="edit-message">
+        
+    @if (session('message'))
+    <p class="session-message">{{ session('message') }}</p>
+@endif
+
+        
+    <article class="selected-product">
+       
 
         <div class="action-bar">
             <nav>
@@ -33,19 +38,28 @@
         
         <h1>{{$product->name }}</h1>
         <section class="product-info">
-            <h2>Brand: {{$product->brand->name}}</h2>
+           
+            <section class="left-container">
+                
+            
             
             @if ($product->image_url)
-            <div class="product-image-container">
-                <img src="{{ asset($product->image_url) }}" alt="{{ $product->name }}" class="product-detail-image">
+            <div class="selected-product-image-container">
+                <img src="{{ asset($product->image_url) }}" alt="{{ $product->name }}" class="selected-product-detail-image">
             </div>
             @endif
-            <div class="product-specs">
-                <p>Price: ${{$product->price}} </p>
-                <p>The product weighs {{$product->weight}}.</p>
-                <p>Dimensions: {{$product->height}} x {{$product->width}}.</p>
-                <p>Category: <span class="category-name">{{$product->category->name}}</span></p>
+            </section>
+            <section class="right-container">
+               
+                <div class="selected-product-specs">
+                    <h2><span>Brand:</span> {{$product->brand->name}}</h2>
+                    <p><span>Price:</span> ${{$product->price}}</p>
+                    <p><span>Weight:</span> {{$product->weight}}</p>
+                    <p><span>Dimensions:</span> {{$product->height}} x {{$product->width}}</p>
+                    <p><span>Category:</span> {{$product->category->name}}</p>
+                 </div>
             </div>
+            </section>
         </section>
     </article>
 </x-layout>
