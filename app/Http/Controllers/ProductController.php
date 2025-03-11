@@ -37,7 +37,6 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $middleware = new AdminOnly();
         $categories = Category::all();
         $brands = Brand::all();
         return view('products.create', ['categories' => $categories, 'brands' => $brands, 'title' => 'Create product']);
@@ -47,9 +46,6 @@ class ProductController extends Controller
     }
     public function store(SaveProductRequest $request)
     {
-        // $product = new Product();
-        // $product->category_id = $request->category_id;
-        // $product->brand_id = $request->brand_id;
 
         $product = Product::create($request->validated());
         return redirect()->route('products.show', ['product' =>$product])
