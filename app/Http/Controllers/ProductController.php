@@ -26,7 +26,7 @@ class ProductController extends Controller
         ->allowedSorts(['name', 'price', 'brand_id'])
         ->defaultSort('name')
         ->with(['category', 'brand'])
-        ->paginate(10)
+        ->paginate(20)
         ->appends($request->query());
         
         return view('products.index', ['products' => $products, 'brands' => Brand::all(), 'categories' => Category::all()]);
