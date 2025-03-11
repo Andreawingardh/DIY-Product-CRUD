@@ -51,8 +51,9 @@ class ProductController extends Controller
         // $product->category_id = $request->category_id;
         // $product->brand_id = $request->brand_id;
 
-        Product::create($request->validated());
-        return redirect(route('products.index'));
+        $product = Product::create($request->validated());
+        return redirect()->route('products.show', ['product' =>$product])
+        ->with(['message' => 'Product successfully created']);
     }
 
     /**
@@ -82,7 +83,8 @@ class ProductController extends Controller
         
 
         $product->update($request->validated());
-        return redirect()->route('products.show', $product);
+        return redirect()->route('products.show', $product)
+        ->with(['message' => 'Product successfully created']);
     }
 
     /**
