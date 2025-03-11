@@ -103,14 +103,6 @@
     background-color: #2563eb;
   }
   
-  /* Responsivitet för formulär */
-  @media (max-width: 768px) {
-    .diy-form {
-      max-width: 90vw;
-      padding: 1.5rem;
-    }
-  }
-  
   /* Produktsida */
   .products-page {
     max-width: 1200px;
@@ -151,9 +143,10 @@
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
     margin-bottom: 2rem;
-    max-width: 1600px;
+    max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
+    justify-content: center;
   }
   
   /* Product card styling */
@@ -333,4 +326,59 @@
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     margin-bottom: 1.5rem;
+  }
+
+  /* Product Filters */
+  .product-filters {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1.25rem auto 1.25rem auto;
+    gap: 0.625rem;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    max-width: 50rem;
+  }
+  
+  .filter-row {
+    display: flex;
+    gap: 0.9375rem;
+    margin-bottom: 0.3125rem;
+  }
+  
+  .sort-options {
+    display: flex;
+    gap: 1.25rem;
+  }
+  
+  .sort-options a, .reset-link {
+    text-decoration: none;
+    color: #333;
+    font-size: 0.875rem;
+  }
+  
+  .sort-options a:hover, .reset-link:hover {
+    color: #3b82f6;
+  }
+  
+  .reset-row {
+    margin: 0.3125rem 0;
+  }
+  
+  .filter-form {
+    display: flex;
+    gap: 0.9375rem;
+    align-items: center;
+  }
+  
+  .filter-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .filter-group label {
+    font-weight: 600;
+    color: #555;
+    font-size: 0.875rem;
   }
