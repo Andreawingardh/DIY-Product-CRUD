@@ -1,42 +1,51 @@
 <x-layout>
-    <div class="container mx-auto px-4 py-8">
-        <div class="bg-white rounded-lg shadow-md overflow-hidden p-6 flex flex-col">
-            <h2 class="text-3xl font-bold text-gray-800 mb-4">{{$product->name }}</h2>
-            
-            <div class="border-t border-gray-200 pt-4 flex-grow">
-                <h3 class="text-xl font-medium text-gray-700 mb-3">Brand: {{$product->brand->name}}</h3>
+    <div class="diy-content">
+        <main>
+            <article class="product-detail">
+                <header>
+                    <h1>{{$product->name }}</h1>
+                </header>
                 
-                <div class="text-gray-600 space-y-2 mb-4">
-                    <p>The product weighs {{$product->weight}}.</p>
-                    <p>Dimensions: {{$product->height}} x {{$product->width}}.</p>
-                    <p>Category: <span class="font-medium">{{$product->category->name}}</span></p>
-                </div>
-            </div>
+                <section class="product-info">
+                    <h2>Brand: {{$product->brand->name}}</h2>
+                    
+                    @if ($product->image_url)
+                    <div class="product-image-container">
+                        <img src="{{ asset($product->image_url) }}" alt="{{ $product->name }}" class="product-detail-image">
+                    </div>
+                @endif
+                    <div class="product-specs">
+                        <p>The product weighs {{$product->weight}}.</p>
+                        <p>Dimensions: {{$product->height}} x {{$product->width}}.</p>
+                        <p>Category: <span class="category-name">{{$product->category->name}}</span></p>
+                    </div>
+                </section>
 
-            @if (auth()->check() && auth()->user()->isAdmin())
-                <div class="flex space-x-2 mt-6">
-                    <a href="/products/{{$product->id}}/edit">
-                        <button class="bg-blue-500 hover:bg-red-700 text-black py-2 px-4 rounded-lg shadow-md transition duration-200">
-                            Edit
-                        </button>  
+                @if (auth()->check() && auth()->user()->isAdmin())
+                    <div class="admin-actions">
+                        <a href="/products/{{$product->id}}/edit">
+                            <button class="edit-button">
+                                Edit
+                            </button>  
+                        </a>
+
+                        <form method="post" action="{{ route('products.destroy', $product)}}">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="delete-button" 
+                                onclick="return confirm('Are you sure you want to delete this product?')">
+                                Delete
+                            </button>
+                        </form>
+                    </div>
+                @endif
+                
+                <footer>
+                    <a href="{{ route('products.index') }}" class="back-link">
+                        &larr; Back to all products
                     </a>
-
-                    <form method="post" action="{{ route('products.destroy', $product)}}">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-lg shadow-md transition duration-200" 
-                            onclick="return confirm('Are you sure you want to delete this product?')">
-                            Delete
-                        </button>
-                    </form>
-                </div>
-            @endif
-            
-            <div class="mt-6">
-                <a href="{{ route('products.index') }}" class="text-blue-500 hover:text-blue-700 font-medium">
-                    &larr; Back to all products
-                </a>
-            </div>
-        </div>
+                </footer>
+            </article>
+        </main>
     </div>
 </x-layout>

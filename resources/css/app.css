@@ -1,3 +1,334 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* DIY Store - specifika stilar som inte påverkar Breeze */
+.diy-content {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+  }
+  
+  /* Containers */
+  .diy-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Formulär - använd mer specifika selektorer */
+  .diy-form {
+    max-width: 50vw;
+    margin: 2rem auto;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .diy-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .diy-form-header h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.5rem;
+  }
+  
+  .diy-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .diy-label {
+    font-weight: 600;
+    color: #555;
+  }
+  
+  .diy-input, .diy-textarea, .diy-select {
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  .diy-input:focus, .diy-textarea:focus, .diy-select:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+  }
+  
+  .diy-fieldset {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 1rem;
+  }
+  
+  .diy-legend {
+    font-weight: 600;
+    padding: 0 0.5rem;
+  }
+  
+  .diy-form-actions {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #ddd;
+    text-align: right;
+  }
+  
+  .diy-submit-button {
+    background-color: #3b82f6;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .diy-submit-button:hover {
+    background-color: #2563eb;
+  }
+  
+  /* Responsivitet för formulär */
+  @media (max-width: 768px) {
+    .diy-form {
+      max-width: 90vw;
+      padding: 1.5rem;
+    }
+  }
+  
+  /* Produktsida */
+  .products-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+  
+  .page-title-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .page-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 1.5rem;
+  }
+  
+  .diy-create-button {
+    background-color: #3b82f6;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: background-color 0.2s;
+  }
+  
+  .diy-create-button:hover {
+    background-color: #2563eb;
+  }
+  
+  /* Products Grid Layout */
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    max-width: 1600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Product card styling */
+  .product-card {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    height: 100%;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .product-link {
+    display: block;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .product-content {
+    padding: 1.5rem;
+  }
+  
+  .product-content h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 0.25rem;
+  }
+  
+  .product-price {
+    font-size: 1.125rem;
+    color: #374151;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+  }
+  
+  .product-content h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 0.5rem;
+  }
+  
+  .product-details {
+    font-size: 0.875rem;
+    color: #4b5563;
+  }
+  
+  .product-details p {
+    margin-bottom: 0.25rem;
+  }
+  
+  .product-category {
+    font-weight: 500;
+  }
+  
+  /* Product Detail Page - Specific styling */
+  .product-detail {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .product-detail header h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+  
+  .product-detail .product-info {
+    margin-bottom: 2rem;
+  }
+  
+  .product-detail .product-info h2 {
+    font-size: 1.25rem;
+    color: #555;
+    margin-bottom: 1rem;
+  }
+  
+  .product-detail .product-specs {
+    color: #666;
+    line-height: 1.6;
+  }
+  
+  .product-detail .category-name {
+    font-weight: 600;
+  }
+  
+  /* Fix för admin-knappar */
+  .product-detail .admin-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+    align-items: center;
+  }
+  
+  .product-detail .admin-actions form {
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    background: none;
+    border-radius: 0;
+    max-width: none; /* Återställ eventuella tidigare formulärstilar */
+  }
+  
+  .product-detail .edit-button,
+  .product-detail .delete-button {
+    background-color: #3b82f6;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    box-shadow: none;
+  }
+  
+  .product-detail .edit-button:hover {
+    background-color: #2563eb;
+  }
+  
+  .product-detail .delete-button {
+    background-color: #ef4444;
+  }
+  
+  .product-detail .delete-button:hover {
+    background-color: #dc2626;
+  }
+  
+  .product-detail footer {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+  }
+  
+  .product-detail .back-link {
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  .product-detail .back-link:hover {
+    color: #2563eb;
+  }
+
+  .product-image-container {
+    width: 100%;
+    margin: 0.5rem 0 1rem 0;
+  }
+  
+  .product-image {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  /* Product image styling for detail page */
+  .product-detail-image {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 1.5rem;
+  }
