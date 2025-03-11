@@ -18,7 +18,7 @@
 
         <fieldset class="diy-form-group">
             <label class="diy-label" for="description">Description</label>
-            <textarea class="diy-textarea" name="description" id="description" rows="4" required>{{ old('description', $product->description ?? '') }}</textarea>
+            <textarea class="diy-textarea" name="description" id="description" rows="4">{{ old('description', $product->description ?? '') }}</textarea>
         </fieldset>
 
         <fieldset class="diy-form-group">
@@ -45,16 +45,16 @@
             <legend class="diy-legend">Dimensions</legend>
             <div class="diy-form-group">
                 <label class="diy-label" for="height">Height</label>
-                <input class="diy-input" type="text" name="height" id="height" value="{{ old('height', $product->height ?? '') }}" required>
+                <input class="diy-input" type="text" name="height" id="height" value="{{ old('height', $product->height ?? '') }}">
             </div>
             <div class="diy-form-group">
                 <label class="diy-label" for="width">Width</label>
-                <input class="diy-input" type="text" name="width" id="width" value="{{ old('width', $product->width ?? '') }}" required>
+                <input class="diy-input" type="text" name="width" id="width" value="{{ old('width', $product->width ?? '') }}">
             </div>  
 
         <fieldset class="diy-form-group">
             <label class="diy-label" for="weight">Weight</label>
-            <input class="diy-input" type="text" name="weight" id="weight" value="{{ old('weight', $product->weight ?? '') }}" required>
+            <input class="diy-input" type="text" name="weight" id="weight" value="{{ old('weight', $product->weight ?? '') }}">
         </fieldset>
     </fieldset>
 

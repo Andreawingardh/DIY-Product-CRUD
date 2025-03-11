@@ -43,7 +43,6 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $middleware = new AdminOnly();
         $categories = Category::all();
         $brands = Brand::all();
         return view('products.create', ['categories' => $categories, 'brands' => $brands, 'title' => 'Create product']);
@@ -54,7 +53,7 @@ class ProductController extends Controller
      */
     public function store(SaveProductRequest $request)
     {
-        // Create the product with validated data
+
         $product = Product::create($request->validated());
         
         // Handle image upload if file is provided
