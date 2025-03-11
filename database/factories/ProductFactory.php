@@ -20,7 +20,19 @@ class ProductFactory extends Factory
     public function definition(): array
     {
 
-                
+        $diyImages = [
+
+            '/images/hammer.jpg',
+            '/images/drill.jpg',
+            '/images/glue.jpg',
+            '/images/glueStick.jpg',
+            '/images/measuringTape.jpg',
+            '/images/sekatör.jpg',
+            '/images/skrews.jpg',
+            '/images/toolkit.jpg',
+            '/images/wrench.jpg',
+    
+        ];
 
         $diyHardwareProducts = [
             // Hand Tools
@@ -153,7 +165,7 @@ class ProductFactory extends Factory
             'width' => fake()->numberBetween(0, 20),
             'weight' => fake()->numberBetween(0, 20),
             'category_id' => fake()->randomElement(Category::pluck('id')),
-            'image_url' => '/images/hammer.jpg'
+            'image_url' => fake()->randomElement($diyImages),
         ];
     }
 }
