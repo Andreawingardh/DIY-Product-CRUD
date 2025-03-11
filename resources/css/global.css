@@ -1,0 +1,33 @@
+:root {
+    --bg-color: #E0E0DE; /* Lite mörkare bakgrund */
+    --text-color: #50504E; /* Primär text */
+    --secondary-text: #000000;
+    --secondary-bg-color: #efefef; /* Sekundär text */
+    --border-color: #C8C8C6; /* Borders och separering */
+    --accent-color: #0000C4; /* Accenter och knappar */
+    --delete-color: #B71010;
+  }
+
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+  }
+  
+  h1, h2, h3 {
+    color: var(--text-color);
+  }
+  
+  p {
+    color: var(--secondary-text);
+  }
+  
+  button {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+  }
+  
+  button:hover {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+  }
+  
