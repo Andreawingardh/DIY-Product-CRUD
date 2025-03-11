@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>DIJA</title>
     {{-- <link rel="stylesheet" href="/css/app.css"> --}}
-    @vite(['resources/css/app.css', 'resources/css/dashboard.css', 'resources/css/products.css', 'resources/css/form.css', 'resources/css/global.css', 'resources/css/buttons.css'])
+    @vite(['resources/css/global.css', 'resources/css/app.css', 'resources/css/form.css', 'resources/css/show.css', 'resources/css/form.css', 'resources/css/filter.css'])
 
 </head>
 <body>

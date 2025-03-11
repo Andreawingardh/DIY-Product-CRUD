@@ -1,8 +1,13 @@
 <x-layout>
+    <section class="edit-message">
+        
+    @if (session('message'))
+    <p class="session-message">{{ session('message') }}</p>
+@endif
+
+    </section>
     <article class="selected-product">
-        @if (session('message'))
-            <p class="session-message">{{ session('message') }}</p>
-        @endif
+       
 
         <div class="action-bar">
             <nav>
