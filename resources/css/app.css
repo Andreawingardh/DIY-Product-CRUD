@@ -265,7 +265,7 @@
   
   .product-detail .edit-button,
   .product-detail .delete-button {
-    background-color: #3b82f6;
+    background-color: #094EBE;
     color: white;
     padding: 0.6rem 1.2rem;
     border-radius: 4px;
@@ -277,15 +277,15 @@
   }
   
   .product-detail .edit-button:hover {
-    background-color: #2563eb;
+    background-color: #0846AA;
   }
   
   .product-detail .delete-button {
-    background-color: #ef4444;
+    background-color: #B71010;
   }
   
   .product-detail .delete-button:hover {
-    background-color: #dc2626;
+    background-color: #970C0C;
   }
   
   .product-detail footer {
@@ -295,7 +295,7 @@
   }
   
   .product-detail .back-link {
-    color: #3b82f6;
+    color: #094EBE;
     text-decoration: none;
     font-weight: 500;
     display: inline-flex;
@@ -303,7 +303,7 @@
   }
   
   .product-detail .back-link:hover {
-    color: #2563eb;
+    color: #0846AA;
   }
 
   .product-image-container {
