@@ -1,11 +1,11 @@
 <section class="product-filters">
     <div class="filter-row">
-      <div class="sort-options">
-        <a href="{{ url('/products') }}?sort=brand_id">Sort by brands</a>
-        <a href="{{ url('/products') }}?sort=price">Sort by price</a>
-        <a href="{{ url('/products') }}?sort=name">Sort by name</a>
-        <a href="{{ url('/products') }}" class="reset-link">Reset filters</a>
-      </div>
+      <ul class="sort-options">
+        <li><a href="{{ url('/products') }}?sort=brand_id"><button>Sort by brands</button></a></li>
+        <li><a href="{{ url('/products') }}?sort=price"><button>Sort by price</button></a></li>
+        <li><a href="{{ url('/products') }}?sort=name"><button>Sort by name</button></a></li>
+        <li><a href="{{ url('/products') }}" class="reset-link"><button>Reset filters</button></a></li>
+      </ul>
     </div>
     
     <form method="GET" action="{{ route('products.index') }}" class="filter-form">
@@ -25,11 +25,13 @@
         <label for="category">Filter by Category:</label>
         <select name="filter[category_id]" id="category" class="diy-select" onchange="this.form.submit()">
           <option value="">All Categories</option>
+
           @foreach($categories as $category)
             <option value="{{ $category->id }}" {{ request('filter.category_id') == $category->id ? 'selected' : '' }}>
               {{ $category->name }}
             </option>
           @endforeach
+            
         </select>
       </div>
     </form>
