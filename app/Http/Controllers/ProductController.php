@@ -84,7 +84,7 @@ class ProductController extends Controller
 
         $product->update($request->validated());
         return redirect()->route('products.show', $product)
-        ->with(['message' => 'Product successfully created']);
+        ->with(['message' => 'Product successfully edited']);
     }
 
     /**
@@ -95,6 +95,7 @@ class ProductController extends Controller
         
 
         $product->delete();
-        return redirect()->route('products.index');
+        return redirect()->route('products.index')
+        ->with(['message' => 'Product successfully deleted']);
     }
 }

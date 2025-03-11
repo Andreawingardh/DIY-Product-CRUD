@@ -382,3 +382,12 @@
     color: #555;
     font-size: 0.875rem;
   }
+
+  p.session-message {
+    font-weight: 800;
+    width: fit-content;
+    color: #3b82f6;
+    display: block;
+    padding: 0.5rem;
+    border: none;
+  }

@@ -10,6 +10,9 @@
                         Create new product
                     </a>
                 @endif --}}
+                @if (session('message'))
+                <p class="session-message">{{ session('message') }}</p>
+              @endif
             </div>
 
             <x-products.filter :products=$products :brands=$brands :categories=$categories />
