@@ -9,7 +9,7 @@
         
         <x-products.form :product=$product :categories=$categories :brands=$brands :title=$title/>
 
-        <button type="submit">Edit product</button>
+        <button type="submit" class="diy-submit-button">Edit product</button>
 
         </form>
     </div>
