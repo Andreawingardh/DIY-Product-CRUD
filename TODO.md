@@ -3,39 +3,39 @@
 In this assignment you're going to write a Laravel application, simulating a web shop admin tool where a user can handle the products. The purpose of this project is to give you a better understanding of writing applications using a framework.
 ## Requirements
 
-- [ ] The user should be able to CRUD a product
+- [x] The user should be able to CRUD a product
   - Create
   - Read
   - Update
   - Delete   
-- [ ] Filter by using a form (category, color, price range, or whatever you want).
+- [x] Filter by using a form (category, color, price range, or whatever you want).
   - Category
   - Color
   - Price
   - Whatever
-- [ ] Error logging
+- [x] Error logging
 
 ### You should implement these five a11y advices:
-- [ ] Implement semantic HTML for better screen reader navigation.
+- [x] Implement semantic HTML for better screen reader navigation.
   - Inga div (bara i nödfall), jobba med alt-texter på bilder
-- [ ] Ensure forms are labeled correctly with clear instructions and accessible error messages.
+- [x] Ensure forms are labeled correctly with clear instructions and accessible error messages.
   - Använda rätt element för rätt sak i forms, validering, csrf 
-- [ ] Ensure sufficient color contrast between text and backgrounds.
+- [x] Ensure sufficient color contrast between text and backgrounds.
   - Kolla om det finns inbyggda funktioner som kan hjälpa med dett
   - Contrast checker på Google??
-- [ ] Avoid relying solely on color to convey meaning (e.g., error states).
+- [x] Avoid relying solely on color to convey meaning (e.g., error states).
   - Klartext om vad ett felmeddelande
-- [ ] Use clear, legible fonts and ensure text can be resized without breaking layout.
+- [x] Use clear, legible fonts and ensure text can be resized without breaking layout.
   - Clamp
   - Googla accessible fonts
 
 ## Extras
 - [ ] Three tests
   - Påhittat scenario, det blir kul
-- [ ] Two different user roles
+- [x] Two different user roles
   - En som kan allt
   - En som kan läsa
-- [ ] One page with pagination
+- [x] One page with pagination
       
 
 ### Nice to have
