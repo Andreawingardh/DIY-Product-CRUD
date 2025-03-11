@@ -88,7 +88,7 @@
   }
   
   .diy-submit-button {
-    background-color: #3b82f6;
+    background-color: #0846AA;
     color: white;
     padding: 0.75rem 1.5rem;
     border: none;
@@ -99,7 +99,7 @@
   }
   
   .diy-submit-button:hover {
-    background-color: #2563eb;
+    background-color: #0846AA;
   }
   
   /* Produktsida */
@@ -124,7 +124,7 @@
   }
   
   .diy-create-button {
-    background-color: #3b82f6;
+    background-color: #0846AA;
     color: white;
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
@@ -273,7 +273,7 @@
   
   .product-detail .edit-button,
   .product-detail .delete-button {
-    background-color: #094EBE;
+    background-color: #0846AA;
     color: white;
     padding: 0.6rem 1.2rem;
     border-radius: 4px;
@@ -393,7 +393,7 @@
   p.session-message {
     font-weight: 800;
     width: fit-content;
-    color: #3b82f6;
+    color: #0846AA;
     display: block;
     padding: 0.5rem;
     border: none;
