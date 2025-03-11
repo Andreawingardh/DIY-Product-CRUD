@@ -10,17 +10,23 @@ use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\SaveProductRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Middleware\AdminOnly;
+use App\Services\FileUploadService;
 use Spatie\QueryBuilder\QueryBuilder;
-
 
 class ProductController extends Controller
 {
+    protected $fileUploadService;
+    
+    public function __construct(FileUploadService $fileUploadService)
+    {
+        $this->fileUploadService = $fileUploadService;
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index(Request $request)
     {
-
         $products = QueryBuilder::for(Product::class)
         ->allowedFilters(['name', 'brand_id', 'category_id'])
         ->allowedSorts(['name', 'price', 'brand_id'])
@@ -41,19 +47,27 @@ class ProductController extends Controller
         $categories = Category::all();
         $brands = Brand::all();
         return view('products.create', ['categories' => $categories, 'brands' => $brands, 'title' => 'Create product']);
-        /**
-         * Store a newly created resource in storage.
-         */
     }
+
+    /**
+     * Store a newly created resource in storage.
+     */
     public function store(SaveProductRequest $request)
     {
-        // $product = new Product();
-        // $product->category_id = $request->category_id;
-        // $product->brand_id = $request->brand_id;
-
+        // Create the product with validated data
         $product = Product::create($request->validated());
-        return redirect()->route('products.show', ['product' =>$product])
-        ->with(['message' => 'Product successfully created']);
+        
+        // Handle image upload if file is provided
+        if ($request->hasFile('image')) {
+            $product->image_url = $this->fileUploadService->uploadFile(
+                $request->file('image'),
+                'products'
+            );
+            $product->save();
+        }
+
+        return redirect()->route('products.show', ['product' => $product])
+            ->with(['message' => 'Product successfully created']);
     }
 
     /**
@@ -69,7 +83,6 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-       
         $categories = Category::all();
         $brands = Brand::all();
         return view('products.edit', ['product' => $product, 'categories' => $categories, 'brands' => $brands, 'title' => 'Edit product']);
@@ -80,11 +93,24 @@ class ProductController extends Controller
      */
     public function update(SaveProductRequest $request, Product $product)
     {
-        
-
+        // Update the product with validated data
         $product->update($request->validated());
+        
+        // Handle image upload if a new file is provided
+        if ($request->hasFile('image')) {
+            // Delete old image if it exists
+            $this->fileUploadService->deleteFile($product->image_url);
+            
+            // Upload and store the new image
+            $product->image_url = $this->fileUploadService->uploadFile(
+                $request->file('image'),
+                'products'
+            );
+            $product->save();
+        }
+
         return redirect()->route('products.show', $product)
-        ->with(['message' => 'Product successfully edited']);
+            ->with(['message' => 'Product successfully edited']);
     }
 
     /**
@@ -92,10 +118,11 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
+        // Delete the product image if it exists
+        $this->fileUploadService->deleteFile($product->image_url);
         
-
         $product->delete();
         return redirect()->route('products.index')
-        ->with(['message' => 'Product successfully deleted']);
+            ->with(['message' => 'Product successfully deleted']);
     }
 }
