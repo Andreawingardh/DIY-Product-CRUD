@@ -3,7 +3,7 @@
 
     <section class="diy-section">
         <header class="diy-form-header">
-            <h2>Product Information</h2>
+            <h2>{{$title}}</h2>
         </header>
 
         <div class="diy-form-group">

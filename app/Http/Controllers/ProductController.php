@@ -40,7 +40,7 @@ class ProductController extends Controller
         $middleware = new AdminOnly();
         $categories = Category::all();
         $brands = Brand::all();
-        return view('products.create', ['categories' => $categories, 'brands' => $brands]);
+        return view('products.create', ['categories' => $categories, 'brands' => $brands, 'title' => 'Create product']);
         /**
          * Store a newly created resource in storage.
          */
@@ -71,7 +71,7 @@ class ProductController extends Controller
        
         $categories = Category::all();
         $brands = Brand::all();
-        return view('products.edit', ['product' => $product, 'categories' => $categories, 'brands' => $brands]);
+        return view('products.edit', ['product' => $product, 'categories' => $categories, 'brands' => $brands, 'title' => 'Edit product']);
     }
 
     /**
