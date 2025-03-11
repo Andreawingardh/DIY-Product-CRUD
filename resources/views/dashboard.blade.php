@@ -30,7 +30,9 @@
                         <th scope="col">Height</th>
                         <th scope="col">Width</th>
                         <th scope="col">Category</th>
+                        @if (auth()->check() && auth()->user()->isAdmin())
                         <th scope="col">Actions</th>
+                        @endif
                     </tr>
                 </thead>
                 <tbody>
@@ -44,6 +46,7 @@
                             <td>{{ $product->width }}</td>
                             <td>{{ $product->category->name ?? 'N/A' }}</td>
                             <td>
+                                @if (auth()->check() && auth()->user()->isAdmin())
                                 <a href="/products/{{$product->id}}/edit">
                                     <button class="edit-link">
                                         Edit
@@ -57,6 +60,7 @@
                                         onclick="return confirm('Are you sure you want to delete this product?')">
                                         Delete
                                     </button>
+                                    @endif
                                 </form>
                             </td>
                         </tr>
