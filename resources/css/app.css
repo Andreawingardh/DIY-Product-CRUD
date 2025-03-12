@@ -2,10 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ------ BASE STYLES ------ */
-body {
-  font-size: clamp(8px, calc(8px + 0.5vw), 16px);
-}
+
 
 .diy-content {
   font-family: 'Arial', sans-serif;
@@ -188,7 +185,7 @@ p.session-message {
 }
 
 .dashboard-card {
-  background-color: #efefef;
+  background-color: #ffffff;
   padding: 1rem;
   margin: 0 auto;
   width: fit-content;
