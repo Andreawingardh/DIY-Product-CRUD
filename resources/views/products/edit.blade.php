@@ -1,8 +1,9 @@
 <x-layout>
     <section class="diy-content">
-        <x-errors />
+       
         <form class="diy-form"  action="{{route('products.update', $product)}}" method="post">
             @method('PATCH')
+            <x-errors />
             
             <x-products.form :product=$product :categories=$categories :brands=$brands :title=$title>
 
