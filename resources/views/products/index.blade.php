@@ -16,8 +16,7 @@
            
         </div>
 
-        <x-products.filter :products="$products" :brands="$brands" :categories="$categories" action="{{ route('products.index') }}" />
-
+        <x-products.filter :products=$products :brands=$brands :categories=$categories />
     
         <section class="products-grid">
             @foreach($products as $product)
