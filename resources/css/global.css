@@ -11,7 +11,7 @@
   body {
     background-color: var(--bg-color);
     color: var(--text-color);
-   font-size: clamp(8px, calc(8px + 0.5vw), 16px);
+    font-size: clamp(8px, calc(8px + 0.5vw), 16px);
   }
   
   h1, h2, h3 {
