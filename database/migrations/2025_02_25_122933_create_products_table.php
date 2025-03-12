@@ -20,9 +20,9 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->foreignIdFor(Brand::class);
             $table->decimal('price', total: 8, places: 2)->default(0);
-            $table->decimal('height', total: 8, places: 2)->default(0); 
-            $table->decimal('width', total: 8, places: 2)->default(0);  
-            $table->decimal('weight', total: 8, places: 2)->default(0); 
+            $table->decimal('height', total: 8, places: 2)->nullable(); 
+            $table->decimal('width', total: 8, places: 2)->nullable();  
+            $table->decimal('weight', total: 8, places: 2)->nullable(); 
             $table->foreignIdFor(Category::class);
             $table->string('image_url')->nullable();
         });

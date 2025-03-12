@@ -1,4 +1,10 @@
 <x-layout>
+    <section class="feedback-message">
+        
+        @if (session('message'))
+        <p class="session-message">{{ session('message') }}</p>
+    @endif
+        </section>
     <section class="products-page">
         <div class="page-title-area">
             <h1 class="page-title">Products</h1>
@@ -7,9 +13,7 @@
                     Create new product
                 </a>
             @endif --}}
-            @if (session('message'))
-            <p class="session-message">{{ session('message') }}</p>
-            @endif
+           
         </div>
 
         <x-products.filter :products=$products :brands=$brands :categories=$categories />

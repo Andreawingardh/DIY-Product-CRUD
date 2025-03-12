@@ -1,10 +1,10 @@
 <x-layout>
-    <section class="edit-message">
+    <section class="feedback-message">
         
     @if (session('message'))
     <p class="session-message">{{ session('message') }}</p>
 @endif
-
+    </section>
         
     <article class="selected-product">
        

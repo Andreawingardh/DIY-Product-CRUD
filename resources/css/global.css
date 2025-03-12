@@ -5,7 +5,8 @@
     --secondary-bg-color: #ffffff; /* Sekundär text */
     --border-color: #C8C8C6; /* Borders och separering */
     --accent-color: #0000C4; /* Accenter och knappar */
-    --delete-color: #B71010;
+    --light-text-color: #ffffff;
+    --delete-color: #970C0C;
   }
 
   body {
