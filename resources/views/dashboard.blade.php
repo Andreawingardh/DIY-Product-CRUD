@@ -5,6 +5,9 @@
             {{-- <img class="logo" src="/images/Logo.webp"> --}}
     </section>
 
+    <x-products.filter :products="$products" :brands="$brands" :categories="$categories" action="{{ route('dashboard') }}" />
+
+
     <section class="dashboard-content">
         <section class="dashboard-card">
             <div class="header-row">

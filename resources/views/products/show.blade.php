@@ -1,4 +1,4 @@
-<x-layout>
+<x-app-layout>
     <section class="feedback-message">
         
     @if (session('message'))
@@ -62,4 +62,4 @@
             </section>
         </section>
     </article>
-</x-layout>
+</x-app-layout>

@@ -1,4 +1,4 @@
-<x-layout>
+<x-app-layout>
     <section class="diy-content">
        
         <form class="diy-form"  action="{{route('products.update', $product)}}" method="post">
@@ -12,4 +12,4 @@
             </x-products.form>
         </form>
     </section>
-</x-layout>
+</x-app-layout>

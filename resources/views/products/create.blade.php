@@ -1,4 +1,4 @@
-<x-layout>
+<x-app-layout>
     <section class="diy-content">
        
 
@@ -13,4 +13,4 @@
 
         </form>
     </section>
-</x-layout>
+</x-app-layout>

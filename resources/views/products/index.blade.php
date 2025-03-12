@@ -1,4 +1,4 @@
-<x-layout>
+<x-app-layout>
     <section class="feedback-message">
         
         @if (session('message'))
@@ -16,7 +16,8 @@
            
         </div>
 
-        <x-products.filter :products=$products :brands=$brands :categories=$categories />
+        <x-products.filter :products="$products" :brands="$brands" :categories="$categories" action="{{ route('products.index') }}" />
+
     
         <section class="products-grid">
             @foreach($products as $product)
@@ -43,4 +44,4 @@
     </section>
     
 
-</x-layout>
+</x-app-layout>
